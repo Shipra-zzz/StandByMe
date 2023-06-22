@@ -1,0 +1,107 @@
+/* Global Styles */
+body {
+    background-image: url('images/homePageImage.jpeg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Header Styles */
+header {
+    text-align: center;
+    background-color: #f6af2b7b;
+    padding: 15px;
+    color: #060606;
+}
+
+header h1 {
+    font-size: 5em;
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: #060606;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    /* color: #fff; */
+    color: rgb(81, 80, 65);
+    padding: 100px;
+    text-align: center;
+}
+
+.hero-section h2 {
+    font-size: 8rem;
+    margin: 0;
+}
+
+.hero-section p {
+    font-size: 3rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #fcca6d81;
+    height: 7rem;
+    width: 15rem;
+    color: #fff;
+    margin-top: 6rem;
+    border-radius: 4%;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+}
+
+/* Sections Styles */
+section {
+    padding: 40px 0;
+}
+
+section h2 {
+    font-size: 50rem;
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 4rem;
+    line-height: 1.5;
+}
+
+/* Footer Styles */
+footer {
+    font-size: 1.5rem;
+    background-color: #333333bc;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
