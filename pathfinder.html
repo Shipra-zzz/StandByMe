@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafePath - Find Safest and Shortest Routes</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- Link to custom CSS file -->
+
+    <style>
+      .hero-section {
+        text-align: center;
+        background-color: antiquewhite;
+        padding: 20px;
+      }
+      .pathfinder-form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .pathfinder-form input {
+        margin-bottom: 10px;
+        padding: 5px;
+      }
+      .pathfinder-form button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SafePath</h1>
+      <nav>
+        <!-- Navigation Bar -->
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="safety.html">Safety Tips</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <h2>Welcome to SafePath</h2>
+        <p>Find the safest and shortest routes with crime rate and traffic information.</p>
+        <form id="pathfinder-form" class="pathfinder-form">
+          <label for="origin">Origin:</label>
+          <input type="text" id="origin" required />
+          <br />
+          <label for="destination">Destination:</label>
+          <input type="text" id="destination" required />
+          <br />
+          <button type="submit">Find Path</button>
+        </form>
+        <div id="path-results"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 SafePath. All rights reserved. <a href="./about.html">About Us</a></p>
+    </footer>
+
+    
+  </body>
+</html>

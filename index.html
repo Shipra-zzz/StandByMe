@@ -13,7 +13,7 @@
       <nav><!-- Navigation Bar -->
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Resources</a></li>
+          <li><a href="resources.html">Resources</a></li>
           <li><a href="safety.html">Safety Tips</a></li>
           <li><a href="#">FAQs</a></li>
           <li><a href="contact.html">Contact Us</a></li>
@@ -28,12 +28,21 @@
         <p>
           Empowering women with knowledge and resources for personal safety.
         </p>
-        <a href="#" class="cta-button">Learn More</a>
+        <a href="#" class="cta-button" id="get-started">Get Started</a>
       </section>
     </main>
 
     <footer>
       <p>&copy; 2023 StandByMe. All rights reserved. <a href="./about.html"> About Us </a></p>
     </footer>
+
+
+    <script>
+      document.getElementById('get-started').addEventListener('click', function(event) {
+        event.preventDefault();
+        window.location.href = 'pathfinder.html';
+      });
+    </script>
+
   </body>
 </html>

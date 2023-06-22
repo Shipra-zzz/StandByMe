@@ -7,25 +7,39 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <!-- Link to custom CSS file -->
     <style>
-        main ol{
-            text-align: center;
-            background-color: #80acce7b;
-        }
-        main ol li{
-            
-            margin: 10px;
-            font-size: 25px;
-            color: rgb(244, 69, 11);
-        }
+      main {
+        text-align: center;
+        background-color: #80acce7b;
+      }
+      .tip-card {
+        margin: 10px;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 5px;
+      }
+      .tip-title {
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(244, 69, 11);
+      }
+      .tip-category {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+      .tip-description {
+        margin-top: 10px;
+        font-size: 16px;
+      }
     </style>
   </head>
   <body>
     <header>
       <h1>StandByMe</h1>
-      <nav><!-- Navigation Bar -->
+      <nav>
+        <!-- Navigation Bar -->
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Resources</a></li>
+          <li><a href="resources.html">Resources</a></li>
           <li><a href="safety.html">Safety Tips</a></li>
           <li><a href="#">FAQs</a></li>
           <li><a href="contact.html">Contact Us</a></li>
@@ -35,23 +49,49 @@
     </header>
 
     <main>
-      <h1 style="text-align: center;font-weight: bold;color: blue; font-size: 40px;">Safety Tips</h1>
-      <ol>
-        <li>Always be aware of your surroundings, especially in unfamiliar or secluded areas.</li>
-        <li>Trust your instincts - if something feels off or uncomfortable, remove yourself from the situation.</li>
-        <li>Keep your personal belongings secure and within sight to prevent theft.</li>
-        <li>Share your whereabouts with a trusted friend or family member when going out alone.</li>
-        <li>Avoid walking alone at night, and if you must, stick to well-lit and populated areas.</li>
-        <li>Learn basic self-defense techniques to protect yourself if needed.</li>
-        <li>Use trusted transportation services or arrange for a ride-share when traveling alone.</li>
-        <li>Be cautious when sharing personal information online and adjust privacy settings on social media platforms.</li>
-        <li>Keep emergency contact numbers saved on your phone and readily accessible.</li>
-        <li>Attend self-defense or safety workshops to enhance your knowledge and skills.</li>
-      </ol>
+      <h1 style="text-align: center; font-weight: bold; color: blue; font-size: 40px;">Safety Tips</h1>
+      <div id="tips-container"><!-- Placeholder for safety tips --></div>
     </main>
 
     <footer>
-     <p>&copy; 2023 StandByMe. All rights reserved. <a href="./about.html"> About Us </a></p>
+      <p>&copy; 2023 StandByMe. All rights reserved. <a href="./about.html"> About Us </a></p>
     </footer>
+
+    <script>
+      const proxyUrl = 'https://api.allorigins.win/raw?url=';
+      const apiUrl = 'https://female-safety-api.onrender.com/tips';
+
+      // Fetch safety tips using the AllOrigins proxy
+      fetch(proxyUrl + encodeURIComponent(apiUrl))
+        .then(response => response.json())
+        .then(data => {
+          const tipsContainer = document.getElementById('tips-container');
+          data.forEach(tip => {
+            const tipCard = document.createElement('div');
+            tipCard.classList.add('tip-card');
+
+            const title = document.createElement('div');
+            title.classList.add('tip-title');
+            title.textContent = tip.title;
+
+            const category = document.createElement('div');
+            category.classList.add('tip-category');
+            category.textContent = `Category: ${tip.category}`;
+
+            const description = document.createElement('div');
+            description.classList.add('tip-description');
+            description.textContent = `Description: ${tip.description}`;
+
+            tipCard.appendChild(title);
+            tipCard.appendChild(category);
+            tipCard.appendChild(description);
+
+            tipsContainer.appendChild(tipCard);
+          });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    </script>
   </body>
 </html>
