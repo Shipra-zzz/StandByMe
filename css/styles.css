@@ -1,8 +1,8 @@
 /* Global Styles */
 body {
-    background-image: url('images/homePageImage.jpeg');
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    background-image: url('../images/homePageImage.jpeg');
+    /* background-position: center; */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -15,9 +15,11 @@ body {
 
 /* Header Styles */
 header {
+    width: 100%;
     text-align: center;
     background-color: #f6af2b7b;
     padding: 15px;
+    padding-right: 0%;
     color: #060606;
 }
 
@@ -27,6 +29,8 @@ header h1 {
 }
 
 nav ul {
+    display: flex;
+    justify-content: space-evenly;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -50,7 +54,7 @@ nav ul li a {
     background-position: center;
     /* color: #fff; */
     color: rgb(81, 80, 65);
-    padding: 100px;
+    /* padding: 100px; */
     text-align: center;
 }
 
@@ -103,9 +107,27 @@ footer {
     background-color: #333333bc;
     color: #fff;
     padding: 5px;
+    padding-right: 0%;
     text-align: center;
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
+}
+@media screen and (max-width: 1000px){
+    header{
+        width: 100%;
+    }
+    header h1 {
+        font-size: 2em;
+        margin: 0;
+    }
+
+    header nav ul{
+        font-size: 8px;
+    }
+
+    footer{
+        font-size: 10px;
+    }
 }
