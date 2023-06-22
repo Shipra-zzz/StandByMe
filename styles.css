@@ -6,7 +6,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    /* height: 100vh; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -62,14 +62,20 @@ nav ul li a {
 .hero-section p {
     font-size: 3rem;
 }
+a{
+    text-decoration: none;
+}
 
 .cta-button {
-    display: inline-block;
-    background-color: #fcca6d81;
+    /* display: inline-block; */
+    border: #060606 solid 1.5px;
+    border-radius: 20px;
+    background-color: #f7af2881;
     height: 7rem;
     width: 15rem;
     color: #fff;
-    margin-top: 6rem;
+    padding: 10px;
+    margin: 6rem;
     border-radius: 4%;
     font-weight: bold;
     text-align: center;
