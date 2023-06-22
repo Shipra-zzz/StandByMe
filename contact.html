@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Female Security Website</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
     <!-- Link to custom CSS file -->
   </head>
   <body>
@@ -22,15 +23,35 @@
       </nav>
     </header>
 
-    <main>
-      <section class="hero-section">
-        <h2>Welcome to StandByMe</h2>
-        <p>
-          Empowering women with knowledge and resources for personal safety.
-        </p>
-        <a href="#" class="cta-button">Learn More</a>
-      </section>
-    </main>
+    <div class="main">
+        <div class="left">
+            <h1 class="heading" style="margin-left: 10px; margin-top: 10px; align-items:center ">Contact Us</h1><br>
+            <p style="margin-left: 10px; font-style:italic">Feel like Contacting us?<br>Submit Your Queries here and we <br>will get back to u
+                as soon as possible</p>
+            
+        </div>
+        <div class="Right">
+            <form action="/contact" class="contact" method="POST">
+                <h2 style="text-align: center; margin-bottom:10px">Send us a Message</h3>
+                <label for="name">Name:</label><br>
+                <input name="name" type="text" class="name" style="border-radius: 7px;width:100%;border: 0;" ;><br>
+                <label for="name">Phone Number:</label><br>
+                <input name="Phone" type="number" class="number" style="border-radius: 7px;width:100%;border: 0;" ;><br>
+                <label for="email">Email:</label><br>
+                <input name="email" type="email" class="email" style="border-radius: 7px;width:100%;border: 0;" ;><br>
+                <span>Mode of Communication</span><br>
+                <input name="EmailMode" type="checkbox" class="emailc"  ;>
+                <label for="email">Email</label>
+                <input name="PhoneMode" type="checkbox" class="phonec" ;>
+                <label for="phone">Phone</label><br>
+                <label for="message">Message:</label><br>
+                <textarea name="message" type="text" class="message"
+                    style="border-radius: 7px;width:100%;border: 0;height: 45px;word-wrap: normal;"></textarea><br><br>
+                <button type="submit" class=" submit btn btn-outline-primary">Submit</button>
+
+            </form>
+        </div>
+    </div>
 
     <footer>
       <p>&copy; 2023 StandByMe. All rights reserved.</p>
