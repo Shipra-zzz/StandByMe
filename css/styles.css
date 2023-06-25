@@ -15,7 +15,7 @@ body {
 /* Header Styles */
 header {
     text-align: center;
-    background-color: rgb(19 18 3);
+    background-color: #0a0a0a8c;
     padding: 10px;
     color: #a1a92dd4;
 }
@@ -60,14 +60,16 @@ div ul li {
 .hero-section {
     background-size: cover;
     background-position: center;
-    color: #38576e;
-    color: #291d05;
+    color: #d91875e8;
     /* padding: 100px; */
     text-align: center;
 }
 
 .hero-section h2 {
     font-size: 60px;
+    font-style: italic;
+    font-family: emoji;
+    font-weight: bolder;
     margin: 0;
 }
 
@@ -90,7 +92,7 @@ a{
     padding: 10px;
     margin: 6rem;
     border-radius: 4%;
-    font-weight: bold;
+    font-weight: bolder;
     text-align: center;
     align-items: center;
 }
@@ -112,6 +114,7 @@ section p {
 
 /* Footer Styles */
 footer {
+    margin-top: 30px;
     font-size: 1.5rem;
     background-color: #0a0a0ae3;
     color: #c6891a;
