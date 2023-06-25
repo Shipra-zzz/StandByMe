@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function fetchData() {
+  const lon = 82.698700; // Replace with the longitude of your location
+  const datetime_ini = '2023-06-01T00:00:00'; // Replace with the start datetime
+  const datetime_end = '2023-06-30T23:59:59'; // Replace with the end datetime
+  const lat = 25.749002; // Replace with the latitude of your location
+
+  const url = `https://crimeometer.p.rapidapi.comstats/?lon=${lon}&datetime_ini=${datetime_ini}&datetime_end=${datetime_end}&lat=${lat}`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'x-api-key': 'k3RAzKN1Ag14xTPlculT39RZb38LGgsG8n27ZycG',
+      'X-RapidAPI-Key': 'dc89968c12mshcbac03dc2255bf2p111cd9jsncf0325a564cf',
+      'X-RapidAPI-Host': 'crimeometer.p.rapidapi.com'
+    }
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const result = await response.text();
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+fetchData();
+
+    </script>
+</body>
+</html>

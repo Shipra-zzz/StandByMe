@@ -41,7 +41,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="safety.html">Safety Tips</a></li>
-          <li><a href="#">FAQs</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
           <li><a href="contact.html">Contact Us</a></li>
           <li><a href="login.html">Login</a></li>
         </ul>
@@ -69,6 +69,44 @@
       <p>&copy; 2023 SafePath. All rights reserved. <a href="./about.html">About Us</a></p>
     </footer>
 
-    
+    <script src="https://apis.mapmyindia.com/advancedmaps/api/3.1.0/mapmyindia-api.min.js"></script>
+
+    <script>
+      // Initialize MapmyIndia API with your API key
+      L.mapmyindia.key = "c098985944448219f5187d3f7d814f3c";
+
+      // Handle form submission
+      document.getElementById("pathfinder-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get origin and destination values
+        var origin = document.getElementById("origin").value;
+        var destination = document.getElementById("destination").value;
+
+        // Use MapmyIndia Routing API to find the path
+        L.mapmyindia.route([origin, destination], function (error, data) {
+          if (error) {
+            console.log("Error:", error);
+          } else {
+            var resultsDiv = document.getElementById("path-results");
+
+            // Clear previous results
+            resultsDiv.innerHTML = "";
+
+            // Display route information
+            var route = data.routes[0];
+            var duration = route.duration;
+            var distance = route.distance;
+
+            var resultHtml = "<h3>Route Information:</h3>";
+            resultHtml += "<p>Duration: " + duration + " min</p>";
+            resultHtml += "<p>Distance: " + distance + " km</p>";
+
+            resultsDiv.innerHTML = resultHtml;
+          }
+        });
+      });
+    </script>
+
   </body>
 </html>
