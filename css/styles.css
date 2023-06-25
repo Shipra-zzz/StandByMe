@@ -55,6 +55,13 @@ div ul li {
     color: white;
     font-size: 30px;
 }
+.login a{
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    color: #fff;
+    background-color: greenyellow;
+}
 
 /* Hero Section Styles */
 .hero-section {
