@@ -9,37 +9,46 @@
     <style>
       main {
         text-align: center;
-        background-color: #80acce7b;
+        background-color: #cab05e;
       }
       .tip-card {
         margin: 10px;
         padding: 20px;
-        background-color: #f4f4f4;
+        background-color: #dab235;
         border-radius: 5px;
       }
       .tip-title {
         font-size: 25px;
         font-weight: bold;
-        color: rgb(244, 69, 11);
+        color: rgb(115 8 31);
       }
       .tip-category {
-        margin-top: 10px;
-        font-size: 18px;
+        margin-top: 20px;
+        font-size: 125%;
       }
       .tip-description {
-        margin-top: 10px;
-        font-size: 16px;
+        margin-top: 12px;
+        font-size: 15px;
       }
     </style>
   </head>
   <body>
     <header>
-      <div class="head" style="display: flex;justify-content: space-between;
-      padding-right: 50px;">
-        <h1 style="text-align: left;">StandByMe</h1>
-        <li class="login" style="color: aliceblue;"><a href="login.html">Login</a></li>
+      <div
+        class="head"
+        style="
+          display: flex;
+          justify-content: space-between;
+          padding-right: 50px;
+        "
+      >
+        <h1 style="text-align: left">StandByMe</h1>
+        <li class="login" style="color: aliceblue">
+          <a href="login.html">Login</a>
+        </li>
       </div>
-      <nav><!-- Navigation Bar -->
+      <nav>
+        <!-- Navigation Bar -->
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="resources.html">Resources</a></li>
@@ -52,37 +61,49 @@
     </header>
 
     <main>
-      <h1 style="text-align: center; font-weight: bold; color: blue; font-size: 40px;">Safety Tips</h1>
+      <h1
+        style="
+          text-align: center;
+          font-weight: bold;
+          color: blue;
+          font-size: 40px;
+        "
+      >
+        Safety Tips
+      </h1>
       <div id="tips-container"><!-- Placeholder for safety tips --></div>
     </main>
 
     <footer>
-      <p>&copy; 2023 StandByMe. All rights reserved. <a href="./about.html"> About Us </a></p>
+      <p>
+        &copy; 2023 StandByMe. All rights reserved.
+        <a href="./about.html"> About Us </a>
+      </p>
     </footer>
 
     <script>
-      const proxyUrl = 'https://api.allorigins.win/raw?url=';
-      const apiUrl = 'https://female-safety-api.onrender.com/tips';
+      const proxyUrl = "https://api.allorigins.win/raw?url=";
+      const apiUrl = "https://female-safety-api.onrender.com/tips";
 
       // Fetch safety tips using the AllOrigins proxy
       fetch(proxyUrl + encodeURIComponent(apiUrl))
-        .then(response => response.json())
-        .then(data => {
-          const tipsContainer = document.getElementById('tips-container');
-          data.forEach(tip => {
-            const tipCard = document.createElement('div');
-            tipCard.classList.add('tip-card');
+        .then((response) => response.json())
+        .then((data) => {
+          const tipsContainer = document.getElementById("tips-container");
+          data.forEach((tip) => {
+            const tipCard = document.createElement("div");
+            tipCard.classList.add("tip-card");
 
-            const title = document.createElement('div');
-            title.classList.add('tip-title');
+            const title = document.createElement("div");
+            title.classList.add("tip-title");
             title.textContent = tip.title;
 
-            const category = document.createElement('div');
-            category.classList.add('tip-category');
+            const category = document.createElement("div");
+            category.classList.add("tip-category");
             category.textContent = `Category: ${tip.category}`;
 
-            const description = document.createElement('div');
-            description.classList.add('tip-description');
+            const description = document.createElement("div");
+            description.classList.add("tip-description");
             description.textContent = `Description: ${tip.description}`;
 
             tipCard.appendChild(title);
@@ -92,8 +113,8 @@
             tipsContainer.appendChild(tipCard);
           });
         })
-        .catch(error => {
-          console.error('Error:', error);
+        .catch((error) => {
+          console.error("Error:", error);
         });
     </script>
   </body>
