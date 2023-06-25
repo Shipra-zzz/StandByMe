@@ -14,12 +14,12 @@
 
     .container {
       margin-top: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: #8991e2;
-      padding: 30px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #e250506b;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 
     h1 {
       text-align: center;
@@ -27,21 +27,24 @@
     }
 
     .faq {
+      /* background-color: #c8a5236b; */
       margin-bottom: 30px;
     }
 
     .question {
-      color: #333;
-      font-weight: bold;
-      cursor: pointer;
-      margin-bottom: 10px;
+      color: #060606;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom: 10px;
     }
 
     .answer {
-      color: #666;
-      display: none;
-      margin-left: 20px;
-    }
+    color: #2c03f8;
+    display: none;
+    margin-left: 20px;
+    font-style: italic;
+    font-weight: 600;
+}
 
     .answer.show {
       display: block;
@@ -59,7 +62,7 @@
     }
 
     .new-question-form button {
-      background-color: #f7af28;
+      background-color: #0891e0;
       color: #fff;
       padding: 10px 20px;
       border: none;
@@ -96,15 +99,18 @@
       <h1 style="text-align: left;">StandByMe</h1>
       <li class="login" style="color: aliceblue;"><a href="login.html">Login</a></li>
     </div>
-    <div><!-- Navigation Bar -->
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="safety.html">Safety Tips</a></li>
-        <li><a href="faqs.html">FAQs</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
+    <div class="head_back">
+      <div class="dropdown">
+        <button class="dropbtn">&#9776;</button>
+        <div class="dropdown-content">
+          <a href="index.html">Home</a>
+          <a href="resources.html">Resources</a>
+          <a href="safety.html">Safety Tips</a>
+          <a href="faqs.html">FAQs</a>
+          <a href="news.html">News</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -112,27 +118,27 @@
     <h1>Frequently Asked Questions</h1>
 
     <div class="faq">
-      <div class="question" onclick="toggleAnswer(1)">What is the purpose of this service?</div>
+      <div class="question" onclick="toggleAnswer(1)">1. What is the purpose of this service?</div>
       <div class="answer" id="answer-1">This service aims to provide women with the safest route recommendations between two points, prioritizing their security and well-being.</div>
     </div>
 
     <div class="faq">
-      <div class="question" onclick="toggleAnswer(2)">How does the safest path calculation work?</div>
+      <div class="question" onclick="toggleAnswer(2)">2. How does the safest path calculation work?</div>
       <div class="answer" id="answer-2">The safest path calculation takes various factors into account, including crime statistics, well-lit areas, presence of security personnel, and user feedback. It recommends the route with the lowest perceived risk.</div>
     </div>
 
     <div class="faq">
-      <div class="question" onclick="toggleAnswer(3)">Is the safest path always the shortest route?</div>
+      <div class="question" onclick="toggleAnswer(3)">3. Is the safest path always the shortest route?</div>
       <div class="answer" id="answer-3">No, the safest path may not always be the shortest route. Safety considerations are prioritized over distance, ensuring that women can choose routes that minimize potential risks.</div>
     </div>
 
     <div class="faq">
-      <div class="question" onclick="toggleAnswer(4)">Can I customize the route based on my preferences?</div>
+      <div class="question" onclick="toggleAnswer(4)">4. Can I customize the route based on my preferences?</div>
       <div class="answer" id="answer-4">Yes, you can customize the route based on your preferences. The service allows you to set additional criteria, such as well-populated areas or routes with emergency services nearby.</div>
     </div>
 
     <div class="faq">
-      <div class="question" onclick="toggleAnswer(5)">How accurate are the safety ratings?</div>
+      <div class="question" onclick="toggleAnswer(5)">5. How accurate are the safety ratings?</div>
       <div class="answer" id="answer-5">The safety ratings are based on comprehensive data analysis and user feedback. However, it's important to note that safety ratings are subjective and can vary based on individual experiences.</div>
     </div>
 
