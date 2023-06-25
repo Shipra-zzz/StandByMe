@@ -27,21 +27,21 @@
   }
 
   form {
-    background-color: #a98848;
+    background-color:  #bba440;
     padding: 10px;
     margin: 10px;
     border: solid white 1.5px;
     border-radius: 10px;
     width: 450px;
-    display: none;
-}
+    display: none; /* Initially hide the forms */
+  }
   
   
   form h2 {
     font-size: 2.9rem;
     text-transform: uppercase;
     margin: 15px 0;
-    color: #e0bc09;
+    color: #060606;
   }
   
   .input-div {
@@ -133,7 +133,7 @@
     display: block;
     /* text-align: right; */
     text-decoration: none;
-    color: #d50404;
+    /* color: #d50404; */
     /* font-size: 0.9rem; */
     transition: 0.3s;
   }

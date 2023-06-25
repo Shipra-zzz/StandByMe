@@ -4,106 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
-      src="https://kit.fontawesome.com/2dfb895f73.js"
-      crossorigin="anonymous"
+    src="https://kit.fontawesome.com/2dfb895f73.js"
+    crossorigin="anonymous"
     ></script>
     <title>News</title>
     <style>
-      h2 {
-        color: #333;
-      }
-
-      section {
-        margin-bottom: 30px;
-        padding: 20px;
-      }
-
-      .article-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-gap: 20px;
-      }
-
-      .category-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        grid-gap: 20px;
-      }
-
-      .article {
-        background-color: #f9f9f9;
-        padding: 10px;
-      }
-
-      .logo {
-        max-width: 200px;
-        height: auto;
-      }
-      .news {
-        padding: 20px;
-      }
-
-      .news h2 {
-        text-align: center;
-        text-decoration: underline;
-        margin-bottom: 20px;
-      }
-
-      .news1 {
-        background-color: white;
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        padding: 10px;
-        border: 1px solid black;
-        border-radius: 5px;
-      }
-
-      .news-image {
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        margin-right: 20px;
-      }
-
-      .news-details {
-        font-size: 18px;
-        flex-grow: 1;
-      }
-
-      .news-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-
-      .news-date {
-        font-size: 12px;
-        color: #888;
-      }
-
-      .news-description {
-        font-size: 18px;
-        margin-top: 10px;
-        line-height: 1.5;
-      }
-
-      .news-btn {
-        display: flex;
-        justify-content: right;
-        margin-top: 20px;
-      }
-
-      .news-btn button {
-        cursor: pointer;
-        border-radius: 5px;
-        width: 100px;
-        height: 40px;
-        color: white;
-        background-color: rgb(130, 12, 12);
-      }
+      
     </style>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/news.css" />
     <!-- Link to custom CSS file -->
   </head>
   <body>
@@ -128,21 +36,21 @@
         </div>
       </div>
     </header>
-
+    
     <section class="news">
       <div id="news-container"></div>
       <div class="news-btn">
         <button onclick="loadMoreNews()">See More</button>
       </div>
     </section>
-
+    
     <footer>
       <p>
         &copy; 2023 StandByMe. All rights reserved.
         <a href="./about.html"> About Us </a>
       </p>
     </footer>
-
+    
     <script>
       const apiKey = "12e417835ffb02577c845853f3015e7f";
       const apiUrl = `https://gnews.io/api/v4/search?q=crime%20against%20women&lang=en&token=${apiKey}`;
