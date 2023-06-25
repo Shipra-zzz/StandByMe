@@ -31,19 +31,71 @@
         cursor: pointer;
       }
     </style>
+    <style>
+    #map {
+      align-items: center;
+      height: 100vh;
+      /* width: 100vw; */
+    }
+
+    .mapboxgl-ctrl-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      background-color: #ffffff;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      padding: 8px;
+      margin: 8px;
+    }
+
+    .mapboxgl-ctrl-group > button {
+      margin-bottom: 8px;
+      padding: 4px 8px;
+      background-color: #f8f8f8;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .places-container {
+      position: absolute;
+      top: 80px;
+      left: 16px;
+      z-index: 1;
+      background-color: #fff;
+      padding: 8px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .place-item {
+      padding: 4px;
+      cursor: pointer;
+    }
+
+    .place-item:hover {
+      background-color: #f8f8f8;
+    }
+  </style>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
   </head>
   <body>
     <header>
-      <h1>SafePath</h1>
-      <nav>
-        <!-- Navigation Bar -->
+      <div class="head" style="display: flex;justify-content: space-between;
+      padding-right: 50px;">
+        <h1 style="text-align: left;">StandByMe</h1>
+        <li class="login" style="color: aliceblue;"><a href="login.html">Login</a></li>
+      </div>
+      <nav><!-- Navigation Bar -->
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="safety.html">Safety Tips</a></li>
           <li><a href="faqs.html">FAQs</a></li>
+          <li><a href="news.html">News</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="login.html">Login</a></li>
         </ul>
       </nav>
     </header>
@@ -52,7 +104,7 @@
       <section class="hero-section">
         <h2>Welcome to SafePath</h2>
         <p>Find the safest and shortest routes with crime rate and traffic information.</p>
-        <form id="pathfinder-form" class="pathfinder-form">
+        <!-- <form id="pathfinder-form" class="pathfinder-form">
           <label for="origin">Origin:</label>
           <input type="text" id="origin" required />
           <br />
@@ -61,52 +113,180 @@
           <br />
           <button type="submit">Find Path</button>
         </form>
-        <div id="path-results"></div>
+        <div id="path-results"></div> -->
       </section>
     </main>
 
+    
+    <div id='map'  style="padding: 30px;margin: 30px;"></div>
+    <div id='places-container' ></div>
     <footer>
       <p>&copy; 2023 SafePath. All rights reserved. <a href="./about.html">About Us</a></p>
     </footer>
 
-    <script src="https://apis.mapmyindia.com/advancedmaps/api/3.1.0/mapmyindia-api.min.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js'></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css' rel='stylesheet' />
+  <link href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' rel='stylesheet' />
 
-    <script>
-      // Initialize MapmyIndia API with your API key
-      L.mapmyindia.key = "c098985944448219f5187d3f7d814f3c";
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic3ViaGFtcHJlZXQiLCJhIjoiY2toY2IwejF1MDdodzJxbWRuZHAweDV6aiJ9.Ys8MP5kVTk5P9V2TDvnuDg';
 
-      // Handle form submission
-      document.getElementById("pathfinder-form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent form submission
+    let map;
+    let placesContainer;
 
-        // Get origin and destination values
-        var origin = document.getElementById("origin").value;
-        var destination = document.getElementById("destination").value;
+    navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+      enableHighAccuracy: true
+    });
 
-        // Use MapmyIndia Routing API to find the path
-        L.mapmyindia.route([origin, destination], function (error, data) {
-          if (error) {
-            console.log("Error:", error);
-          } else {
-            var resultsDiv = document.getElementById("path-results");
+    function successLocation(position) {
+      setupMap([position.coords.longitude, position.coords.latitude]);
+      addMarker([position.coords.longitude, position.coords.latitude]);
+      getNearbyPlaces([position.coords.longitude, position.coords.latitude]);
+    }
 
-            // Clear previous results
-            resultsDiv.innerHTML = "";
+    function errorLocation() {
+      setupMap([-2.24, 53.48]);
+    }
 
-            // Display route information
-            var route = data.routes[0];
-            var duration = route.duration;
-            var distance = route.distance;
+    function setupMap(center) {
+      map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v10',
+        center: center,
+        zoom: 12
+      });
 
-            var resultHtml = "<h3>Route Information:</h3>";
-            resultHtml += "<p>Duration: " + duration + " min</p>";
-            resultHtml += "<p>Distance: " + distance + " km</p>";
+      const nav = new mapboxgl.NavigationControl();
+      map.addControl(nav);
 
-            resultsDiv.innerHTML = resultHtml;
+      var directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+      });
+
+      map.addControl(directions, 'top-left');
+
+      const customControl = document.createElement('div');
+      customControl.className = 'mapboxgl-ctrl-group';
+
+      const customButton = document.createElement('button');
+      customButton.textContent = 'Custom Control';
+
+      customButton.addEventListener('click', () => {
+        alert('Custom control button clicked!');
+      });
+
+      customControl.appendChild(customButton);
+
+      map.on('load', () => {
+        map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
+        map.addControl(new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true
+          },
+          trackUserLocation: true
+        }), 'top-right');
+        map.addControl(new mapboxgl.ScaleControl({
+          maxWidth: 80,
+          unit: 'metric'
+        }), 'bottom-right');
+        map.addControl(new mapboxgl.AttributionControl(), 'bottom-right');
+      });
+      map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
+    }
+
+    function addMarker(coordinates) {
+      const marker = new mapboxgl.Marker()
+        .setLngLat(coordinates)
+        .addTo(map);
+    }
+
+    function getNearbyPlaces(coordinates) {
+      map.on('load', () => {
+        map.addSource('places', {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: []
           }
         });
+
+        placesContainer = document.getElementById('places-container');
+
+        map.addLayer({
+          id: 'places',
+          type: 'circle',
+          source: 'places',
+          paint: {
+            'circle-radius': 6,
+            'circle-color': '#ff0000'
+          }
+        });
+
+        const places = new mapboxgl.places({
+          accessToken: mapboxgl.accessToken,
+          proximity: {
+            longitude: coordinates[0],
+            latitude: coordinates[1]
+          },
+          types: ['restaurant', 'hotel', 'park']
+        });
+
+        places.search({
+          radius: 1000,
+          limit: 5
+        }, (err, data) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+
+          const placesData = data.body;
+          const features = [];
+
+          placesData.features.forEach((place) => {
+            features.push({
+              type: 'Feature',
+              properties: {
+                title: place.text,
+                description: place.properties.address
+              },
+              geometry: {
+                type: 'Point',
+                coordinates: place.geometry.coordinates
+              }
+            });
+          });
+
+          map.getSource('places').setData({
+            type: 'FeatureCollection',
+            features: features
+          });
+
+          placesData.features.forEach((place) => {
+            const placeItem = document.createElement('div');
+            placeItem.className = 'place-item';
+            placeItem.textContent = place.text;
+
+            placeItem.addEventListener('click', () => {
+              flyToPlace(place.geometry.coordinates);
+            });
+
+            placesContainer.appendChild(placeItem);
+          });
+        });
       });
-    </script>
+    }
+
+    function flyToPlace(coordinates) {
+      map.flyTo({
+        center: coordinates,
+        zoom: 15
+      });
+    }
+  </script>
+    
 
   </body>
 </html>

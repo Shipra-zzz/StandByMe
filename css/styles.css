@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-    width: 100%;
+    width: 100vw;
     background-image: url('../images/homePageImage.jpeg');
     /* background-position: center; */
     font-family: Arial, sans-serif;
@@ -17,10 +17,9 @@ body {
 header {
     width: 100%;
     text-align: center;
-    background-color: #f6af2b7b;
-    padding: 15px;
-    padding-right: 0%;
-    color: #060606;
+    background-color: rgb(19 18 3);
+    padding: 10px;
+    color: #a1a92dd4;
 }
 
 header h1 {
@@ -28,9 +27,9 @@ header h1 {
     margin: 0;
 }
 
-nav ul {
+nav ul{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -39,27 +38,36 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 }
 
+.login{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
 nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 2em;
+    font-size: 30px;
 }
 
 /* Hero Section Styles */
 .hero-section {
     background-size: cover;
     background-position: center;
-    /* color: #fff; */
-    color: rgb(81, 80, 65);
+    color: #38576e;
+    color: #291d05;
     /* padding: 100px; */
     text-align: center;
 }
 
 .hero-section h2 {
-    font-size: 5rem;
+    font-size: 60px;
     margin: 0;
 }
 
@@ -104,8 +112,8 @@ section p {
 /* Footer Styles */
 footer {
     font-size: 1.5rem;
-    background-color: #333333bc;
-    color: #fff;
+    background-color: #0a0a0ae3;
+    color: #c6891a;
     padding: 5px;
     padding-right: 0%;
     text-align: center;
