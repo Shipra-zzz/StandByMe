@@ -1,6 +1,5 @@
 /* Global Styles */
 body {
-    width: 100vw;
     background-image: url('../images/homePageImage.jpeg');
     /* background-position: center; */
     font-family: Arial, sans-serif;
@@ -15,7 +14,6 @@ body {
 
 /* Header Styles */
 header {
-    width: 100%;
     text-align: center;
     background-color: rgb(19 18 3);
     padding: 10px;
@@ -26,17 +24,24 @@ header h1 {
     font-size: 80px;
     margin: 0;
 }
+/* .head_back{
+    display:flex;
+    justify-content: space-between;
+} */
 
-nav ul{
+
+div ul{
+    padding: 5px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     list-style-type: none;
     padding: 0;
     margin: 0;
-    color: #060606;
+    font-size: 30px;
+    color: #fff;
 }
 
-nav ul li {
+div ul li {
     display: inline-block;
     /* margin-right: 10px; */
 }
@@ -45,12 +50,7 @@ nav ul li {
     flex-direction: column;
     display: flex;
     justify-content: center;
-    margin-right: 10px;
-    text-decoration: none;
-    color: white;
-    font-size: 30px;
-}
-nav ul li a {
+    /* margin-right: 10px; */
     text-decoration: none;
     color: white;
     font-size: 30px;
@@ -75,6 +75,7 @@ nav ul li a {
     font-size: 2.5rem;
 }
 a{
+    color: #fff;
     text-decoration: none;
 }
 
