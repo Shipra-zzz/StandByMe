@@ -27,14 +27,14 @@
   }
 
   form {
-    background-color: lightblue;
+    background-color: #a98848;
     padding: 10px;
     margin: 10px;
     border: solid white 1.5px;
     border-radius: 10px;
     width: 450px;
-    display: none; /* Initially hide the forms */
-  }
+    display: none;
+}
   
   
   form h2 {

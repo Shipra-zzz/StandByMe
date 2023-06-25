@@ -1,118 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./css/styles.css" />
-        <script
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
       src="https://kit.fontawesome.com/2dfb895f73.js"
       crossorigin="anonymous"
     ></script>
     <title>News</title>
     <style>
+      h2 {
+        color: #333;
+      }
 
-h2 {
-    color: #333;
-}
+      section {
+        margin-bottom: 30px;
+        padding: 20px;
+      }
 
-section {
-    margin-bottom: 30px;
-    padding: 20px;
-}
+      .article-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+      }
 
-.article-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-}
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 20px;
+      }
 
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-gap: 20px;
-}
+      .article {
+        background-color: #f9f9f9;
+        padding: 10px;
+      }
 
-.article {
-    background-color: #f9f9f9;
-    padding: 10px;
-}
+      .logo {
+        max-width: 200px;
+        height: auto;
+      }
+      .news {
+        padding: 20px;
+      }
 
-.logo {
-    max-width: 200px;
-    height: auto;
-}
-.news {
-  padding: 20px;
-}
+      .news h2 {
+        text-align: center;
+        text-decoration: underline;
+        margin-bottom: 20px;
+      }
 
-.news h2 {
-  text-align: center;
-  text-decoration: underline;
-  margin-bottom: 20px;
-}
+      .news1 {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
 
-.news1 {
-    background-color: white;
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-}
+      .news-image {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        margin-right: 20px;
+      }
 
-.news-image {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  margin-right: 20px;
-}
+      .news-details {
+        font-size: 18px;
+        flex-grow: 1;
+      }
 
-.news-details {
-    font-size: 18px;
-  flex-grow: 1;
-}
+      .news-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
 
-.news-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+      .news-date {
+        font-size: 12px;
+        color: #888;
+      }
 
-.news-date {
-  font-size: 12px;
-  color: #888;
-}
+      .news-description {
+        font-size: 18px;
+        margin-top: 10px;
+        line-height: 1.5;
+      }
 
-.news-description {
-    font-size: 18px;
-  margin-top: 10px;
-  line-height: 1.5;
-}
+      .news-btn {
+        display: flex;
+        justify-content: right;
+        margin-top: 20px;
+      }
 
-.news-btn {
-  display: flex;
-  justify-content: right;
-  margin-top: 20px;
-}
-
-.news-btn button {
-  cursor: pointer;
-  border-radius: 5px;
-  width: 100px;
-  height: 40px;
-  color: white;
-  background-color: rgb(130, 12, 12);
-}
-
+      .news-btn button {
+        cursor: pointer;
+        border-radius: 5px;
+        width: 100px;
+        height: 40px;
+        color: white;
+        background-color: rgb(130, 12, 12);
+      }
     </style>
+    <link rel="stylesheet" href="./css/styles.css" />
     <!-- Link to custom CSS file -->
   </head>
   <body>
     <header>
-      <div class="head" style="display: flex;justify-content: space-between;">
-        <h1 style="text-align: left;">StandByMe</h1>
-        <button class="login" style="color: aliceblue;"><a href="login.html">Login</a></button>
+      <div class="head" style="display: flex; justify-content: space-between">
+        <h1 style="text-align: left">StandByMe</h1>
+        <button class="login" style="color: aliceblue">
+          <a href="login.html">Login</a>
+        </button>
       </div>
       <div class="head_back">
         <div class="dropdown">
@@ -130,85 +130,86 @@ section {
     </header>
 
     <section class="news">
-        <div id="news-container"></div>
-        <div class="news-btn">
-          <button onclick="loadMoreNews()">See More</button>
-        </div>
-      </section>
+      <div id="news-container"></div>
+      <div class="news-btn">
+        <button onclick="loadMoreNews()">See More</button>
+      </div>
+    </section>
 
     <footer>
-      <p>&copy; 2023 StandByMe. All rights reserved. <a href="./about.html"> About Us </a></p>
+      <p>
+        &copy; 2023 StandByMe. All rights reserved.
+        <a href="./about.html"> About Us </a>
+      </p>
     </footer>
 
-
     <script>
-        const apiKey = "12e417835ffb02577c845853f3015e7f";
-        const apiUrl = `https://gnews.io/api/v4/search?q=crime%20against%20women&lang=en&token=${apiKey}`;
-  
-        // Fetch news data from the API
-        async function fetchNews(containerId) {
-          try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            const articles = data.articles;
-  
-            const newsContainer = document.getElementById(containerId);
-  
-            // Display news articles
-            for (let i = 0; i < articles.length; i++) {
-              if (i >= 10) {
-                break;
-              }
-              const article = articles[i];
-              const { title, publishedAt, description, image, url } = article;
-  
-              const newsItem = document.createElement("div");
-              newsItem.className = "news1";
-  
-              const newsImage = document.createElement("img");
-              newsImage.className = "news-image";
-              newsImage.src = image;
-              newsImage.alt = title;
-  
-              const newsDetails = document.createElement("div");
-              newsDetails.className = "news-details";
-  
-              const newsTitle = document.createElement("h3");
-              newsTitle.className = "news-title";
-              newsTitle.textContent = title;
-  
-              const newsDate = document.createElement("p");
-              newsDate.className = "news-date";
-              newsDate.textContent = new Date(publishedAt).toDateString();
-  
-              const newsDescription = document.createElement("p");
-              newsDescription.className = "news-description";
-              newsDescription.textContent = description;
-  
-              const newsLink = document.createElement("a");
-              newsLink.href = url;
-              newsLink.target = "_blank";
-              newsLink.textContent = "Read More";
-              newsLink.style =
-                "color:white; border:solid black; background-color:red;border-radius:5px ; float:right;padding:5px";
-  
-              newsDetails.append(newsTitle, newsDate, newsDescription, newsLink);
-              newsItem.append(newsImage, newsDetails);
-              newsContainer.appendChild(newsItem);
-            }
-          } catch (error) {
-            console.error("Error fetching news:", error);
-          }
-        }
-  
-        // Load more news and redirect to a new page
-        function loadMoreNews() {
-          window.location.href = "news.html";
-        }
-  
-        // Fetch news on page load
-        fetchNews("news-container");
-      </script>
+      const apiKey = "12e417835ffb02577c845853f3015e7f";
+      const apiUrl = `https://gnews.io/api/v4/search?q=crime%20against%20women&lang=en&token=${apiKey}`;
 
+      // Fetch news data from the API
+      async function fetchNews(containerId) {
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          const articles = data.articles;
+
+          const newsContainer = document.getElementById(containerId);
+
+          // Display news articles
+          for (let i = 0; i < articles.length; i++) {
+            if (i >= 10) {
+              break;
+            }
+            const article = articles[i];
+            const { title, publishedAt, description, image, url } = article;
+
+            const newsItem = document.createElement("div");
+            newsItem.className = "news1";
+
+            const newsImage = document.createElement("img");
+            newsImage.className = "news-image";
+            newsImage.src = image;
+            newsImage.alt = title;
+
+            const newsDetails = document.createElement("div");
+            newsDetails.className = "news-details";
+
+            const newsTitle = document.createElement("h3");
+            newsTitle.className = "news-title";
+            newsTitle.textContent = title;
+
+            const newsDate = document.createElement("p");
+            newsDate.className = "news-date";
+            newsDate.textContent = new Date(publishedAt).toDateString();
+
+            const newsDescription = document.createElement("p");
+            newsDescription.className = "news-description";
+            newsDescription.textContent = description;
+
+            const newsLink = document.createElement("a");
+            newsLink.href = url;
+            newsLink.target = "_blank";
+            newsLink.textContent = "Read More";
+            newsLink.style =
+              "color:white; border:solid black; background-color:red;border-radius:5px ; float:right;padding:5px";
+
+            newsDetails.append(newsTitle, newsDate, newsDescription, newsLink);
+            newsItem.append(newsImage, newsDetails);
+            newsContainer.appendChild(newsItem);
+          }
+        } catch (error) {
+          console.error("Error fetching news:", error);
+        }
+      }
+
+      // Load more news and redirect to a new page
+      function loadMoreNews() {
+        window.location.href = "news.html";
+      }
+
+      // Fetch news on page load
+      fetchNews("news-container");
+    </script>
   </body>
 </html>
