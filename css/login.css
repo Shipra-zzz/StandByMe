@@ -27,12 +27,13 @@
   }
 
   form {
-    background-color:  #bba440;
+    background-color: rgba(255, 255, 255, 0.78);
     padding: 10px;
     margin: 10px;
     border: solid white 1.5px;
     border-radius: 10px;
     width: 450px;
+    margin-top: 25%;
     display: none; /* Initially hide the forms */
   }
   
@@ -136,6 +137,7 @@
     /* color: #d50404; */
     /* font-size: 0.9rem; */
     transition: 0.3s;
+    color: #ef0303;
   }
   
   a:hover {
