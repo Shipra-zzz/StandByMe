@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Female Security Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/login.css" />
+  <link rel="stylesheet" href="./css/register.css">
+
+  <!-- Link to custom CSS file -->
+</head>
+<!-- <body>
+    <header>
+      <h1>StandByMe</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="safety.html">Safety Tips</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header> -->
+
+<main>
+  <div class="container-login">
+    <div class="login-container">
+      <form id="login-form" class="form show-login" method="post" action="/login/">
+        <div id="name">StandByMe</div>
+        <h1>Enter Details</h1><br />
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" name="full-name" required><br><br>
+
+        <label for="self-phone">Phone Number:</label>
+        <select id="self-country-code" name="self-country-code" required>
+          <option value="+91">+91 (India)</option>
+          <option value="+1">+1 (USA)</option>
+          <option value="+44">+44 (UK)</option>
+        </select>
+        <input type="text" id="self-phone" name="self-phone" required>
+        <br><br>
+
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="docType">Document Type:</label>
+        <select id="docType" name="docType" required>
+          <option value="aadhar-number">Aadhar Card</option>
+          <option value="pan-number">Pan Card</option>
+          <option value="DL">Driver's License</option>
+        </select>
+        <label for="doc-number">Document ID:</label>
+        <input type="text" id="doc-number" name="doc-number" required><br><br>
+
+        <h3>Emergency Contact:</h3><br>
+        <label for="emergency-name">Name:</label>
+        <input type="text" id="emergency-name" name="emergency-name" required><br><br>
+
+        <label for="emergency-phone">Phone Number:</label>
+        <select id="emergency-country-code" name="emergency-country-code" required>
+          <option value="+91">+91 (India)</option>
+          <option value="+1">+1 (USA)</option>
+          <option value="+44">+44 (UK)</option>
+        </select>
+        <input type="text" id="emergency-phone" name="emergency-phone" required>
+        <br><br>
+
+        <label for="emergency-relation">Relation:</label>
+        <select id="emergency-relation" name="emergency-relation" required>
+          <option value="">Select Relation</option>
+          <option value="Parent">Father</option>
+          <option value="Parent">Mother</option>
+          <option value="Sibling">Sibling</option>
+          <option value="Spouse">Spouse</option>
+          <option value="Friend">Friend</option>
+          <option value="Other">Other</option>
+        </select><br><br>
+
+        <input type="submit" value="Register">
+      </form>
+    </div>
+  </div>
+</main>
+
+<!-- <footer>
+      <p>&copy; 2023 StandByMe. All rights reserved. <a href="./about.html"> About Us </a></p>
+    </footer> -->
+
+<script type="text/javascript" src="js/login.js"></script>
+</body>
+
+</html>
